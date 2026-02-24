@@ -1,5 +1,6 @@
 import React from 'react';
 import { Rocket, Twitter, Github, Linkedin } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -7,12 +8,12 @@ const Footer = () => {
       <div className="container">
         <div className="footer-grid">
           <div className="footer-brand">
-            <div className="logo flex items-center gap-2 text-2xl font-bold font-heading mb-6">
+            <Link to="/" className="logo flex items-center gap-2 text-2xl font-bold font-heading mb-6 no-underline">
               <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-secondary rotate-3">
                 <Rocket size={24} fill="currentColor" />
               </div>
               <span className="text-white">WP Content AI</span>
-            </div>
+            </Link>
             <p>
               Liderando a revolução da inteligência artificial aplicada ao WordPress.
               Criado para profissionais que levam SEO e conteúdo a sério.
@@ -47,9 +48,9 @@ const Footer = () => {
           <div className="footer-links">
             <h4>Legal</h4>
             <ul>
-              <li><a href="#">Termos de Uso</a></li>
-              <li><a href="#">Privacidade</a></li>
-              <li><a href="#">Licenciamento</a></li>
+              <li><Link to="/terms">Termos de Uso</Link></li>
+              <li><Link to="/privacy">Privacidade</Link></li>
+              <li><Link to="/licensing">Licenciamento</Link></li>
             </ul>
           </div>
         </div>

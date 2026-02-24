@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Rocket } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 
 const Header = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const location = useLocation();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -14,21 +16,23 @@ const Header = () => {
     }, []);
 
     const navLinks = [
-        { name: 'Funcionalidades', href: '#features' },
-        { name: 'Como Funciona', href: '#how-it-works' },
-        { name: 'Preços', href: '#pricing' },
-        { name: 'FAQ', href: '#faq' },
+        { name: 'Funcionalidades', href: '/#features' },
+        { name: 'Como Funciona', href: '/#how-it-works' },
+        { name: 'Preços', href: '/#pricing' },
+        { name: 'FAQ', href: '/#faq' },
     ];
+
+    const isHome = location.pathname === '/';
 
     return (
         <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'py-4 glass-effect shadow-lg' : 'py-6 bg-transparent'}`}>
             <div className="container flex items-center justify-between">
-                <div className="flex items-center gap-2 text-2xl font-bold font-heading">
+                <Link to="/" className="flex items-center gap-2 text-2xl font-bold font-heading no-underline">
                     <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-secondary rotate-3">
                         <Rocket size={24} fill="currentColor" />
                     </div>
                     <span className="bg-gradient-to-r from-white to-primary bg-clip-text text-transparent">WP Content AI</span>
-                </div>
+                </Link>
 
                 {/* Desktop Nav */}
                 <nav className="hidden md:flex items-center gap-8" aria-label="Navegação Principal">
@@ -36,7 +40,7 @@ const Header = () => {
                         <a
                             key={link.name}
                             href={link.href}
-                            className="text-sm font-medium hover:text-primary tracking-wide"
+                            className="text-sm font-medium hover:text-primary tracking-wide text-white/70 hover:no-underline"
                         >
                             {link.name}
                         </a>
@@ -62,7 +66,7 @@ const Header = () => {
                         <a
                             key={link.name}
                             href={link.href}
-                            className="text-lg font-medium"
+                            className="text-lg font-medium text-white/90"
                             onClick={() => setMobileMenuOpen(false)}
                         >
                             {link.name}

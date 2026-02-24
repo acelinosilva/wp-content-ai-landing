@@ -31,12 +31,36 @@
     box-sizing: border-box;
 }
 
+/* Global Refinements */
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: var(--font-main);
     background-color: var(--bg-main);
     color: var(--text-main);
     line-height: 1.6;
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-main);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
 }
 
 h1,
@@ -46,7 +70,12 @@ h4,
 h5,
 h6 {
     font-family: var(--font-heading);
-    line-height: 1.2;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+}
+
+.text-primary {
+    color: var(--primary);
 }
 
 a {

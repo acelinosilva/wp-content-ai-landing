@@ -31,7 +31,7 @@ const Header = () => {
                 </div>
 
                 {/* Desktop Nav */}
-                <nav className="hidden md:flex items-center gap-8">
+                <nav className="hidden md:flex items-center gap-8" aria-label="Navegação Principal">
                     {navLinks.map((link) => (
                         <a
                             key={link.name}

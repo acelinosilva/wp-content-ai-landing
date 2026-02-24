@@ -2,66 +2,66 @@ import React from 'react';
 import { Rocket, Twitter, Github, Linkedin } from 'lucide-react';
 
 const Footer = () => {
-    return (
-        <footer className="footer">
-            <div className="container">
-                <div className="footer-grid">
-                    <div className="footer-brand">
-                        <div className="logo flex items-center gap-2 text-2xl font-bold font-heading mb-6">
-                            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-secondary rotate-3">
-                                <Rocket size={24} fill="currentColor" />
-                            </div>
-                            <span className="text-white">WP Content AI</span>
-                        </div>
-                        <p>
-                            Liderando a revolução da inteligência artificial aplicada ao WordPress.
-                            Criado para profissionais que levam SEO e conteúdo a sério.
-                        </p>
-                        <div className="social-links">
-                            <a href="#"><Twitter size={20} /></a>
-                            <a href="#"><Github size={20} /></a>
-                            <a href="#"><Linkedin size={20} /></a>
-                        </div>
-                    </div>
-
-                    <div className="footer-links">
-                        <h4>Produto</h4>
-                        <ul>
-                            <li><a href="#features">Funcionalidades</a></li>
-                            <li><a href="#pricing">Preços</a></li>
-                            <li><a href="#">Roadmap</a></li>
-                            <li><a href="#">Depoimentos</a></li>
-                        </ul>
-                    </div>
-
-                    <div className="footer-links">
-                        <h4>Suporte</h4>
-                        <ul>
-                            <li><a href="#">Documentação</a></li>
-                            <li><a href="#">Central de Ajuda</a></li>
-                            <li><a href="#">API</a></li>
-                            <li><a href="#">Contato</a></li>
-                        </ul>
-                    </div>
-
-                    <div className="footer-links">
-                        <h4>Legal</h4>
-                        <ul>
-                            <li><a href="#">Termos de Uso</a></li>
-                            <li><a href="#">Privacidade</a></li>
-                            <li><a href="#">Licenciamento</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div className="footer-bottom">
-                    <p>&copy; {new Date().getFullYear()} WP Content AI. Todos os direitos reservados.</p>
-                    <p>Orgulhosamente brasileiro.</p>
-                </div>
+  return (
+    <footer className="footer">
+      <div className="container">
+        <div className="footer-grid">
+          <div className="footer-brand">
+            <div className="logo flex items-center gap-2 text-2xl font-bold font-heading mb-6">
+              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-secondary rotate-3">
+                <Rocket size={24} fill="currentColor" />
+              </div>
+              <span className="text-white">WP Content AI</span>
             </div>
+            <p>
+              Liderando a revolução da inteligência artificial aplicada ao WordPress.
+              Criado para profissionais que levam SEO e conteúdo a sério.
+            </p>
+            <div className="social-links">
+              <a href="#"><Twitter size={20} /></a>
+              <a href="#"><Github size={20} /></a>
+              <a href="#"><Linkedin size={20} /></a>
+            </div>
+          </div>
 
-            <style dangerouslySetInnerHTML={{
-                __html: `
+          <div className="footer-links">
+            <h4>Produto</h4>
+            <ul>
+              <li><a href="#features">Funcionalidades</a></li>
+              <li><a href="#pricing">Preços</a></li>
+              <li><a href="#">Roadmap</a></li>
+              <li><a href="#">Depoimentos</a></li>
+            </ul>
+          </div>
+
+          <div className="footer-links">
+            <h4>Suporte</h4>
+            <ul>
+              <li><a href="#">Documentação</a></li>
+              <li><a href="#">Central de Ajuda</a></li>
+              <li><a href="#">API</a></li>
+              <li><a href="#">Contato</a></li>
+            </ul>
+          </div>
+
+          <div className="footer-links">
+            <h4>Legal</h4>
+            <ul>
+              <li><a href="#">Termos de Uso</a></li>
+              <li><a href="#">Privacidade</a></li>
+              <li><a href="#">Licenciamento</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="footer-bottom">
+          <p>&copy; {new Date().getFullYear()} WP Content AI. Todos os direitos reservados.</p>
+          <p>Orgulhosamente brasileiro.</p>
+        </div>
+      </div>
+
+      <style dangerouslySetInnerHTML={{
+        __html: `
         .footer {
           padding: 80px 0 40px;
           border-top: 1px solid var(--border);
@@ -149,8 +149,8 @@ const Footer = () => {
           }
         }
       `}} />
-        </footer>
-    );
+    </footer>
+  );
 };
 
 export default Footer;

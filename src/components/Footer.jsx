@@ -31,7 +31,7 @@ const Footer = () => {
               <li><a href="#features">Funcionalidades</a></li>
               <li><a href="#pricing">Preços</a></li>
               <li><a href="#">Roadmap</a></li>
-              <li><a href="#">Depoimentos</a></li>
+              <li><a href="#testimonials">Depoimentos</a></li>
             </ul>
           </div>
 

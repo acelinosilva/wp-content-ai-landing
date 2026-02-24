@@ -6,6 +6,7 @@ import Hero from './components/Hero'
 import Features from './components/Features'
 import HowItWorks from './components/HowItWorks'
 import InterfaceShowcase from './components/InterfaceShowcase'
+import Testimonials from './components/Testimonials'
 import Pricing from './components/Pricing'
 import FAQ from './components/FAQ'
 import Footer from './components/Footer'
@@ -21,6 +22,7 @@ const MainLanding = () => (
         <Features />
         <HowItWorks />
         <InterfaceShowcase />
+        <Testimonials />
         <Pricing />
         <FAQ />
     </main>

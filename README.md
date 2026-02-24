@@ -1,6 +1,6 @@
 # 🚀 WP Content AI Landing Page
 
-Uma landing page moderna, persuasiva e otimizada para conversão, desenvolvida para o plugin **WP Content AI**. Este projeto destaca o uso de Inteligência Artificial para automação de conteúdo e SEO no WordPress.
+Uma landing page moderna, persuasiva e otimizada para conversão, desenvolvida para o plugin **WP Content AI**. Este projeto destaca o uso de Inteligência Artificial (GPT-4, Claude 3.5 Sonnet, Gemini) para **automação de conteúdo**, **geração de artigos em massa**, **imagens com IA (DALL-E 3)** e **SEO completo** no WordPress.
 
 ## ✨ Funcionalidades Principais
 

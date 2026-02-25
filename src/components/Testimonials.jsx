@@ -1,73 +1,103 @@
-import React from 'react';
-import { Star, CheckCircle } from 'lucide-react';
+import React, { useEffect, useRef } from 'react';
+import { Star, CheckCircle, Quote } from 'lucide-react';
 
 const Testimonials = () => {
-    const testimonials = [
-        {
-            name: "Ricardo S.",
-            role: "Especialista em SEO",
-            content: "O WP Content AI mudou o jogo para meus sites de nicho. O que antes levava horas de pesquisa e escrita, agora resolvo em minutos com uma qualidade que o Google adora. Rankeei 3 novos projetos na primeira página em menos de 20 dias.",
-            initial: "R",
-            avatarBg: "linear-gradient(135deg, #00C896 0%, #008f6b 100%)",
-            stars: 5
-        },
-        {
-            name: "Beatriz M.",
-            role: "Redatora Freelancer",
-            content: "A integração com YouTube é genial. Ela extrai os melhores pontos e cria um artigo único e rico. Meus clientes de agência estão impressionados com a velocidade de entrega e a estrutura impecável de SEO.",
-            initial: "B",
-            avatarBg: "linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)",
-            stars: 5
-        },
-        {
-            name: "Gustavo F.",
-            role: "Dono de Rede de Afiliados",
-            content: "Sinceramente, era cético com plugins de IA, mas o sistema de humanização dele é outro nível. Meus artigos não parecem 'robóticos' e a automação de links internos me economizou semanas de trabalho manual.",
-            initial: "G",
-            avatarBg: "linear-gradient(135deg, #f59e0b 0%, #d97706 100%)",
-            stars: 5
-        }
-    ];
+  const sectionRef = useRef(null);
 
-    return (
-        <section id="testimonials" className="testimonials-section">
-            <div className="container">
-                <div className="section-title animate-fade-in">
-                    <span className="subtitle">Depoimentos Reais</span>
-                    <h2>Aprovado por quem domina o SEO</h2>
-                    <p>Veja os resultados reais de profissionais que já automatizaram seu império de conteúdo.</p>
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+      { threshold: 0.1 }
+    );
+    sectionRef.current?.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    const handleMouseMove = (e) => {
+      sectionRef.current?.querySelectorAll('.testimonial-card').forEach(card => {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+        card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+      });
+    };
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => { observer.disconnect(); window.removeEventListener('mousemove', handleMouseMove); };
+  }, []);
+
+  const testimonials = [
+    {
+      name: "Ricardo S.",
+      role: "Especialista em SEO",
+      content: "O WP Content AI mudou o jogo para meus sites de nicho. O que antes levava horas de pesquisa e escrita, agora resolvo em minutos com uma qualidade que o Google adora. Rankeei 3 novos projetos na primeira página em menos de 20 dias.",
+      initial: "R",
+      avatarBg: "linear-gradient(135deg, #00C896 0%, #007a5c 100%)",
+      stars: 5
+    },
+    {
+      name: "Beatriz M.",
+      role: "Redatora Freelancer",
+      content: "A integração com YouTube é genial. Ela extrai os melhores pontos e cria um artigo único e rico. Meus clientes de agência estão impressionados com a velocidade de entrega e a estrutura impecável de SEO.",
+      initial: "B",
+      avatarBg: "linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)",
+      stars: 5
+    },
+    {
+      name: "Gustavo F.",
+      role: "Dono de Rede de Afiliados",
+      content: "Sinceramente, era cético com plugins de IA, mas o sistema de humanização dele é outro nível. Meus artigos não parecem 'robóticos' e a automação de links internos me economizou semanas de trabalho manual.",
+      initial: "G",
+      avatarBg: "linear-gradient(135deg, #f59e0b 0%, #b45309 100%)",
+      stars: 5
+    }
+  ];
+
+  return (
+    <section id="testimonials" className="testimonials-section" ref={sectionRef}>
+      <div className="container">
+        <div className="section-title reveal">
+          <span className="subtitle">Depoimentos Reais</span>
+          <h2>Aprovado por quem domina o SEO</h2>
+          <p>Veja os resultados reais de profissionais que já automatizaram seu império de conteúdo.</p>
+        </div>
+
+        <div className="testimonials-grid">
+          {testimonials.map((testi, index) => (
+            <div
+              key={index}
+              className="testimonial-card reveal"
+              style={{ transitionDelay: `${index * 0.1}s` }}
+            >
+              <div className="card-mouse-glow"></div>
+
+              {/* Big quote icon */}
+              <div className="quote-icon">
+                <Quote size={32} />
+              </div>
+
+              <div className="stars">
+                {[...Array(testi.stars)].map((_, i) => (
+                  <Star key={i} size={15} fill="var(--primary)" className="text-primary" />
+                ))}
+              </div>
+
+              <p className="testi-content">"{testi.content}"</p>
+
+              <div className="testi-footer">
+                <div className="testi-avatar" style={{ background: testi.avatarBg }}>
+                  {testi.initial}
                 </div>
-
-                <div className="testimonials-grid">
-                    {testimonials.map((testi, index) => (
-                        <div key={index} className="testimonial-card glass-effect animate-up" style={{ animationDelay: `${index * 0.15}s` }}>
-                            <div className="stars">
-                                {[...Array(testi.stars)].map((_, i) => (
-                                    <Star key={i} size={16} fill="var(--primary)" className="text-primary" />
-                                ))}
-                            </div>
-
-                            <p className="testi-content">"{testi.content}"</p>
-
-                            <div className="testi-footer">
-                                <div className="testi-avatar" style={{ background: testi.avatarBg }}>
-                                    {testi.initial}
-                                </div>
-                                <div className="testi-info">
-                                    <div className="testi-name">
-                                        {testi.name}
-                                        <CheckCircle size={14} className="verified-icon" />
-                                    </div>
-                                    <div className="testi-role">{testi.role}</div>
-                                </div>
-                            </div>
-                        </div>
-                    ))}
+                <div className="testi-info">
+                  <div className="testi-name">
+                    {testi.name}
+                    <CheckCircle size={14} className="verified-icon" />
+                  </div>
+                  <div className="testi-role">{testi.role}</div>
                 </div>
+              </div>
             </div>
+          ))}
+        </div>
+      </div>
 
-            <style dangerouslySetInnerHTML={{
-                __html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         .testimonials-section {
           padding: var(--section-padding);
           background: var(--bg-main);
@@ -76,86 +106,125 @@ const Testimonials = () => {
 
         .testimonials-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-          gap: 30px;
-          margin-top: 50px;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 24px;
         }
 
         .testimonial-card {
-          padding: 40px;
-          border-radius: 28px;
-          border: 1px solid var(--border);
-          transition: all 0.4s ease;
+          padding: 36px;
+          border-radius: 6px;
+          background: var(--bg-card);
+          border: 1px solid var(--border-subtle);
+          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
           position: relative;
+          overflow: hidden;
         }
 
-        .testimonial-card:hover {
-          transform: translateY(-10px);
-          border-color: var(--primary);
-          background: rgba(15, 23, 42, 0.6);
+        .card-mouse-glow {
+          position: absolute;
+          inset: 0;
+          border-radius: inherit;
+          background: radial-gradient(
+            400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+            rgba(0,200,150,0.07) 0%,
+            transparent 60%
+          );
+          opacity: 0;
+          transition: opacity 0.35s;
+          pointer-events: none;
         }
+        .testimonial-card:hover .card-mouse-glow { opacity: 1; }
+
+        .testimonial-card::before {
+          content: '';
+          position: absolute;
+          top: 0; left: 0; right: 0;
+          height: 2px;
+          background: linear-gradient(90deg, transparent, var(--primary), transparent);
+          transform: scaleX(0);
+          transition: transform 0.4s ease;
+        }
+        .testimonial-card:hover::before { transform: scaleX(1); }
+
+        .testimonial-card:hover {
+          transform: translateY(-8px);
+          border-color: rgba(0,200,150,0.25);
+          box-shadow: 0 32px 64px -16px rgba(0,0,0,0.6), 0 0 0 1px rgba(0,200,150,0.08);
+          background: var(--bg-card-hover);
+        }
+
+        .quote-icon {
+          color: var(--primary);
+          opacity: 0.2;
+          margin-bottom: 20px;
+          transition: opacity 0.3s;
+        }
+        .testimonial-card:hover .quote-icon { opacity: 0.4; }
 
         .stars {
           display: flex;
-          gap: 4px;
-          margin-bottom: 24px;
+          gap: 3px;
+          margin-bottom: 18px;
         }
 
         .testi-content {
           color: var(--text-muted);
           font-style: italic;
           line-height: 1.8;
-          font-size: 1.05rem;
-          margin-bottom: 30px;
+          font-size: 0.95rem;
+          margin-bottom: 28px;
           position: relative;
+          flex: 1;
         }
 
         .testi-footer {
           display: flex;
           align-items: center;
-          gap: 16px;
-          border-top: 1px solid var(--border);
-          padding-top: 24px;
+          gap: 14px;
+          border-top: 1px solid var(--border-subtle);
+          padding-top: 22px;
         }
 
         .testi-avatar {
-          width: 50px;
-          height: 50px;
-          border-radius: 12px;
+          width: 46px; height: 46px;
+          border-radius: 4px;
           display: flex;
           align-items: center;
           justify-content: center;
           color: #fff;
           font-weight: 800;
-          font-size: 1.2rem;
-          box-shadow: 0 10px 20px -5px rgba(0,0,0,0.3);
+          font-size: 1.1rem;
+          box-shadow: 0 8px 20px -4px rgba(0,0,0,0.4);
+          flex-shrink: 0;
         }
 
         .testi-name {
           color: #fff;
           font-weight: 700;
-          font-size: 1.1rem;
+          font-size: 1rem;
           display: flex;
           align-items: center;
           gap: 6px;
         }
 
-        .verified-icon {
-          color: var(--primary);
-        }
+        .verified-icon { color: var(--primary); }
 
         .testi-role {
           color: var(--text-muted);
-          font-size: 0.85rem;
+          font-size: 0.8rem;
+          margin-top: 3px;
         }
 
+        @media (max-width: 1024px) {
+          .testimonials-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        }
         @media (max-width: 640px) {
-          .testimonial-card { padding: 30px; }
           .testimonials-grid { grid-template-columns: 1fr; }
+          .testimonial-card { padding: 28px; }
         }
       `}} />
-        </section>
-    );
+    </section>
+  );
 };
 
 export default Testimonials;

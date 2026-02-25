@@ -143,49 +143,74 @@ const InterfaceShowcase = () => {
           display: flex;
           align-items: center;
           gap: 16px;
-          padding: 24px;
-          background: transparent;
-          border: 1px solid var(--border);
-          border-radius: 16px;
+          padding: 20px 24px;
+          background: var(--bg-card);
+          border: 1px solid var(--border-subtle);
+          border-radius: 6px;
           cursor: pointer;
           text-align: left;
-          transition: var(--transition);
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
           color: var(--text-muted);
+          position: relative;
+          overflow: hidden;
+        }
+
+        .tab-item::before {
+          content: '';
+          position: absolute;
+          left: 0; top: 0; bottom: 0;
+          width: 3px;
+          background: var(--primary);
+          transform: scaleY(0);
+          transition: transform 0.3s ease;
+          border-radius: 0 2px 2px 0;
         }
 
         .tab-item:hover {
-          border-color: rgba(0, 200, 150, 0.3);
-          background: rgba(0, 200, 150, 0.05);
+          border-color: rgba(0, 200, 150, 0.2);
+          background: var(--bg-card-hover);
+          color: rgba(248,250,252,0.8);
+          transform: translateX(3px);
         }
 
         .tab-item.active {
-          border-color: var(--primary);
-          background: rgba(0, 200, 150, 0.1);
+          border-color: rgba(0,200,150,0.35);
+          background: linear-gradient(135deg, rgba(0,200,150,0.08) 0%, var(--bg-card) 100%);
           color: #fff;
+          box-shadow: 0 8px 24px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.04);
         }
+        .tab-item.active::before { transform: scaleY(1); }
 
         .tab-icon {
           width: 40px;
           height: 40px;
-          background: var(--bg-card);
+          background: rgba(0,200,150,0.06);
+          border: 1px solid rgba(0,200,150,0.12);
           border-radius: 10px;
           display: flex;
           align-items: center;
           justify-content: center;
           color: var(--primary);
+          flex-shrink: 0;
+          transition: all 0.3s;
         }
 
         .tab-item.active .tab-icon {
           background: var(--primary);
           color: var(--secondary);
+          border-color: var(--primary);
+          box-shadow: 0 4px 12px rgba(0,200,150,0.3);
         }
 
         .tab-content {
-          padding: 40px;
-          border-radius: 24px;
+          padding: 36px;
+          border-radius: 6px;
           display: flex;
           flex-direction: column;
-          gap: 30px;
+          gap: 28px;
+          background: var(--bg-card);
+          border: 1px solid var(--border-subtle);
+          box-shadow: 0 24px 48px -12px rgba(0,0,0,0.5);
         }
 
         .screen-header {
@@ -226,10 +251,11 @@ const InterfaceShowcase = () => {
 
         .screen-preview {
           position: relative;
-          border-radius: 12px;
+          border-radius: 6px;
           overflow: hidden;
-          border: 1px solid var(--border);
-          box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.5);
+          border: 1px solid var(--border-subtle);
+          box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.6),
+                      0 0 0 1px rgba(0,200,150,0.06);
           cursor: zoom-in;
         }
 

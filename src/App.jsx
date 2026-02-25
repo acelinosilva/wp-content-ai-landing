@@ -5,6 +5,7 @@ import Header from './components/Header'
 import Hero from './components/Hero'
 import Features from './components/Features'
 import HowItWorks from './components/HowItWorks'
+import VideoSection from './components/VideoSection'
 import InterfaceShowcase from './components/InterfaceShowcase'
 import Testimonials from './components/Testimonials'
 import Pricing from './components/Pricing'
@@ -21,6 +22,7 @@ const MainLanding = () => (
         <Hero />
         <Features />
         <HowItWorks />
+        <VideoSection />
         <InterfaceShowcase />
         <Testimonials />
         <Pricing />

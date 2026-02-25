@@ -1,27 +1,32 @@
 import React from 'react';
-import { Rocket, Twitter, Github, Linkedin } from 'lucide-react';
+import { Zap, Twitter, Github, Linkedin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
     <footer className="footer">
+      {/* Top gradient border */}
+      <div className="footer-top-border" aria-hidden="true"></div>
+
       <div className="container">
         <div className="footer-grid">
           <div className="footer-brand">
-            <Link to="/" className="logo flex items-center gap-2 text-2xl font-bold font-heading mb-6 no-underline">
-              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-secondary rotate-3">
-                <Rocket size={24} fill="currentColor" />
+            <Link to="/" className="footer-logo">
+              <div className="footer-logo-icon">
+                <Zap size={18} fill="currentColor" />
               </div>
-              <span className="text-white">WP Content AI</span>
+              <span className="footer-logo-text">
+                <span style={{ color: 'var(--primary)' }}>WP</span> Content AI
+              </span>
             </Link>
             <p>
               Liderando a revolução da inteligência artificial aplicada ao WordPress.
               Criado para profissionais que levam SEO e conteúdo a sério.
             </p>
             <div className="social-links">
-              <a href="#"><Twitter size={20} /></a>
-              <a href="#"><Github size={20} /></a>
-              <a href="#"><Linkedin size={20} /></a>
+              <a href="#" aria-label="Twitter"><Twitter size={18} /></a>
+              <a href="#" aria-label="GitHub"><Github size={18} /></a>
+              <a href="#" aria-label="LinkedIn"><Linkedin size={18} /></a>
             </div>
           </div>
 
@@ -57,7 +62,7 @@ const Footer = () => {
 
         <div className="footer-bottom">
           <p>&copy; {new Date().getFullYear()} WP Content AI. Todos os direitos reservados.</p>
-          <p>Orgulhosamente brasileiro.</p>
+          <p className="footer-made">🇧🇷 Orgulhosamente brasileiro.</p>
         </div>
       </div>
 
@@ -65,89 +70,143 @@ const Footer = () => {
         __html: `
         .footer {
           padding: 80px 0 40px;
-          border-top: 1px solid var(--border);
           background: #000;
+          position: relative;
+        }
+
+        .footer-top-border {
+          position: absolute;
+          top: 0; left: 0; right: 0;
+          height: 1px;
+          background: linear-gradient(to right, transparent, var(--primary), transparent);
+          opacity: 0.25;
         }
 
         .footer-grid {
           display: grid;
           grid-template-columns: 2fr 1fr 1fr 1fr;
           gap: 60px;
-          margin-bottom: 80px;
+          margin-bottom: 64px;
+        }
+
+        .footer-logo {
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          font-family: var(--font-heading);
+          font-size: 1.2rem;
+          font-weight: 800;
+          color: #fff;
+          text-decoration: none;
+          margin-bottom: 20px;
+        }
+
+        .footer-logo-icon {
+          width: 32px; height: 32px;
+          background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
+          border-radius: 4px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: var(--secondary);
+          box-shadow: 0 4px 12px rgba(0,200,150,0.25);
+          flex-shrink: 0;
         }
 
         .footer-brand p {
           color: var(--text-muted);
-          max-width: 320px;
+          font-size: 0.88rem;
+          line-height: 1.7;
+          max-width: 300px;
           margin-bottom: 24px;
         }
 
         .social-links {
           display: flex;
-          gap: 16px;
+          gap: 10px;
         }
 
         .social-links a {
-          width: 40px;
-          height: 40px;
-          border-radius: 50%;
-          background: var(--bg-card);
+          width: 38px; height: 38px;
+          border-radius: 4px;
+          background: rgba(30,41,59,0.5);
           display: flex;
           align-items: center;
           justify-content: center;
           color: var(--text-muted);
-          border: 1px solid var(--border);
+          border: 1px solid var(--border-subtle);
+          transition: all 0.25s ease;
         }
 
         .social-links a:hover {
           color: var(--primary);
-          border-color: var(--primary);
+          border-color: rgba(0,200,150,0.3);
+          background: rgba(0,200,150,0.08);
+          transform: translateY(-2px);
         }
 
         .footer-links h4 {
           color: #fff;
-          margin-bottom: 24px;
-          font-size: 1.1rem;
+          margin-bottom: 20px;
+          font-size: 0.9rem;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.08em;
         }
 
         .footer-links ul li {
-          margin-bottom: 12px;
+          margin-bottom: 10px;
         }
 
         .footer-links ul li a {
           color: var(--text-muted);
-          font-size: 0.95rem;
+          font-size: 0.88rem;
+          transition: all 0.25s ease;
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          position: relative;
+        }
+
+        .footer-links ul li a::before {
+          content: '';
+          display: inline-block;
+          width: 0;
+          height: 1px;
+          background: var(--primary);
+          transition: width 0.25s ease;
+          flex-shrink: 0;
         }
 
         .footer-links ul li a:hover {
           color: var(--primary);
-          padding-left: 5px;
+        }
+
+        .footer-links ul li a:hover::before {
+          width: 12px;
         }
 
         .footer-bottom {
-          padding-top: 40px;
-          border-top: 1px solid var(--border);
+          padding-top: 32px;
+          border-top: 1px solid var(--border-subtle);
           display: flex;
           justify-content: space-between;
+          align-items: center;
           color: var(--text-muted);
-          font-size: 0.875rem;
+          font-size: 0.82rem;
         }
 
-        .mb-6 { margin-bottom: 1.5rem; }
-
+        @media (max-width: 1024px) {
+          .footer-grid { grid-template-columns: 2fr 1fr 1fr; gap: 40px; }
+        }
         @media (max-width: 768px) {
-          .footer-grid {
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-          }
-          .footer-brand {
-            grid-column: span 2;
-          }
-          .footer-bottom {
-            flex-direction: column;
-            gap: 20px;
-            text-align: center;
-          }
+          .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+          .footer-brand { grid-column: span 2; }
+          .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+        }
+        @media (max-width: 480px) {
+          .footer-grid { grid-template-columns: 1fr; }
+          .footer-brand { grid-column: span 1; }
         }
       `}} />
     </footer>

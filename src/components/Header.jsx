@@ -1,11 +1,55 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Zap } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
+import { useLanguage } from '../contexts/LanguageContext';
+
+const LanguageSwitcher = ({ mobile = false }) => {
+  const { language, setLanguage } = useLanguage();
+  return (
+    <div className="language-switcher" style={{
+      display: 'flex',
+      gap: '8px',
+      alignItems: 'center',
+      padding: mobile ? '12px 16px' : '0'
+    }}>
+      <button
+        onClick={(e) => { e.preventDefault(); setLanguage('pt'); }}
+        style={{
+          opacity: language === 'pt' ? 1 : 0.5,
+          background: 'none',
+          border: 'none',
+          cursor: 'pointer',
+          color: 'white',
+          fontWeight: 'bold',
+          padding: '4px'
+        }}
+      >
+        PT
+      </button>
+      <span style={{ color: 'rgba(255,255,255,0.3)' }}>|</span>
+      <button
+        onClick={(e) => { e.preventDefault(); setLanguage('en'); }}
+        style={{
+          opacity: language === 'en' ? 1 : 0.5,
+          background: 'none',
+          border: 'none',
+          cursor: 'pointer',
+          color: 'white',
+          fontWeight: 'bold',
+          padding: '4px'
+        }}
+      >
+        EN
+      </button>
+    </div>
+  );
+};
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 30);
@@ -14,10 +58,10 @@ const Header = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Funcionalidades', href: '/#features' },
-    { name: 'Como Funciona', href: '/#how-it-works' },
-    { name: 'Preços', href: '/#pricing' },
-    { name: 'FAQ', href: '/#faq' },
+    { name: t('header.features'), href: '/#features' },
+    { name: t('header.howItWorks'), href: '/#how-it-works' },
+    { name: t('header.pricing'), href: '/#pricing' },
+    { name: t('header.faq'), href: '/#faq' },
   ];
 
   return (
@@ -35,14 +79,15 @@ const Header = () => {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="desktop-nav" aria-label="Navegação Principal">
+          <nav className="desktop-nav" aria-label={t('header.navLang') || "Navegação Principal"}>
             {navLinks.map((link) => (
-              <a key={link.name} href={link.href} className="nav-link">
+              <a key={link.href} href={link.href} className="nav-link">
                 {link.name}
               </a>
             ))}
+            <LanguageSwitcher />
             <a href="https://pay.kiwify.com.br/aoO4x6M" target="_blank" rel="noopener noreferrer" className="btn btn-primary nav-cta">
-              Começar Agora
+              {t('header.startNow')}
             </a>
           </nav>
 
@@ -61,7 +106,7 @@ const Header = () => {
           <div className="mobile-menu animate-fade-in">
             {navLinks.map((link) => (
               <a
-                key={link.name}
+                key={link.href}
                 href={link.href}
                 className="mobile-link"
                 onClick={() => setMobileMenuOpen(false)}
@@ -69,8 +114,9 @@ const Header = () => {
                 {link.name}
               </a>
             ))}
+            <LanguageSwitcher mobile />
             <a href="https://pay.kiwify.com.br/aoO4x6M" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ width: '100%' }} onClick={() => setMobileMenuOpen(false)}>
-              Começar Agora
+              {t('header.startNow')}
             </a>
           </div>
         )}

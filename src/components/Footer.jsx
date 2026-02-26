@@ -1,8 +1,12 @@
 import React from 'react';
 import { Zap, Twitter, Github, Linkedin } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Footer = () => {
+  const { t, language } = useLanguage();
+  const dateStr = language === 'pt' ? new Date().toLocaleDateString('pt-BR') : new Date().toLocaleDateString('en-US');
+
   return (
     <footer className="footer">
       {/* Top gradient border */}
@@ -19,10 +23,7 @@ const Footer = () => {
                 <span style={{ color: 'var(--primary)' }}>WP</span> Content AI
               </span>
             </Link>
-            <p>
-              Liderando a revolução da inteligência artificial aplicada ao WordPress.
-              Criado para profissionais que levam SEO e conteúdo a sério.
-            </p>
+            <p>{t('footer.brandDescription')}</p>
             <div className="social-links">
               <a href="#" aria-label="Twitter"><Twitter size={18} /></a>
               <a href="#" aria-label="GitHub"><Github size={18} /></a>
@@ -31,42 +32,42 @@ const Footer = () => {
           </div>
 
           <div className="footer-links">
-            <h4>Produto</h4>
+            <h4>{t('footer.product')}</h4>
             <ul>
-              <li><a href="#features">Funcionalidades</a></li>
-              <li><a href="#pricing">Preços</a></li>
-              <li><a href="#">Roadmap</a></li>
-              <li><a href="#testimonials">Depoimentos</a></li>
+              <li><a href="#features">{t('footer.features')}</a></li>
+              <li><a href="#pricing">{t('footer.pricing')}</a></li>
+              <li><a href="#">{t('footer.roadmap')}</a></li>
+              <li><a href="#testimonials">{t('footer.testimonials')}</a></li>
             </ul>
           </div>
 
           <div className="footer-links">
-            <h4>Suporte</h4>
+            <h4>{t('footer.support')}</h4>
             <ul>
-              <li><a href="#">Documentação</a></li>
-              <li><a href="#">Central de Ajuda</a></li>
+              <li><a href="#">{t('footer.documentation')}</a></li>
+              <li><a href="#">{t('footer.helpCenter')}</a></li>
               <li><a href="#">API</a></li>
-              <li><a href="#">Contato</a></li>
+              <li><a href="#">{t('footer.contact')}</a></li>
             </ul>
           </div>
 
           <div className="footer-links">
-            <h4>Legal</h4>
+            <h4>{t('footer.legal')}</h4>
             <ul>
-              <li><Link to="/terms">Termos de Uso</Link></li>
-              <li><Link to="/privacy">Privacidade</Link></li>
-              <li><Link to="/licensing">Licenciamento</Link></li>
+              <li><Link to="/terms">{t('footer.termsOfUse')}</Link></li>
+              <li><Link to="/privacy">{t('footer.privacyPolicy')}</Link></li>
+              <li><Link to="/licensing">{t('footer.licensing')}</Link></li>
             </ul>
           </div>
         </div>
 
         <div className="footer-bottom">
-          <p>&copy; {new Date().getFullYear()} WP Content AI. Todos os direitos reservados.</p>
+          <p>&copy; {new Date().getFullYear()} {t('footer.copyright')}</p>
           <p className="footer-made">
             <span style={{ opacity: 0.6, fontSize: '0.75rem', marginRight: '15px' }}>
-              Última atualização: {new Date().toLocaleDateString('pt-BR')}
+              {t('footer.lastUpdate')} {dateStr}
             </span>
-            🇧🇷 Orgulhosamente brasileiro.
+            {t('footer.madeIn')}
           </p>
         </div>
       </div>

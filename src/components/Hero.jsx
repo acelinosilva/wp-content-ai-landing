@@ -1,8 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import { ArrowRight, Bot, Sparkles, Zap, TrendingUp } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Hero = () => {
   const statsRef = useRef(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     // Mouse-tracking radial highlight for section background
@@ -29,28 +31,26 @@ const Hero = () => {
       <div className="container hero-content animate-fade-in">
         <div className="badge">
           <Sparkles size={13} className="text-primary" />
-          <span>Lançamento: WP Content AI v2.0</span>
+          <span>{t('hero.launch')}</span>
           <span className="badge-dot"></span>
-          <span className="badge-live">NOVO</span>
+          <span className="badge-live">{t('hero.new')}</span>
         </div>
 
         <h1>
-          Transforme seu WordPress em uma <br />
-          <span className="text-glow">Máquina de Conteúdo</span> com IA
+          {t('hero.title1')} <br />
+          <span className="text-glow">{t('hero.title2')}</span> {t('hero.title3')}
         </h1>
 
         <p className="hero-description">
-          O primeiro plugin brasileiro que automatiza a criação de artigos, imagens e
-          otimização SEO completa usando as melhores IAs do mercado. Economize 20+ horas
-          semanais e domine o Google.
+          {t('hero.description')}
         </p>
 
         <div className="hero-btns">
           <a href="https://pay.kiwify.com.br/aoO4x6M" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-lg">
-            Quero Começar Agora <ArrowRight size={20} />
+            {t('hero.ctaPrimary')} <ArrowRight size={20} />
           </a>
           <a href="#features" className="btn btn-secondary btn-lg">
-            Ver Funcionalidades
+            {t('hero.ctaSecondary')}
           </a>
         </div>
 
@@ -62,7 +62,7 @@ const Hero = () => {
             </div>
             <div>
               <strong>10x</strong>
-              <span>Mais Rápido</span>
+              <span>{t('hero.stat1')}</span>
             </div>
           </div>
           <div className="stat-divider"></div>
@@ -72,7 +72,7 @@ const Hero = () => {
             </div>
             <div>
               <strong>100%</strong>
-              <span>Automação</span>
+              <span>{t('hero.stat2')}</span>
             </div>
           </div>
           <div className="stat-divider"></div>
@@ -82,7 +82,7 @@ const Hero = () => {
             </div>
             <div>
               <strong>20h+</strong>
-              <span>Economizadas/Semana</span>
+              <span>{t('hero.stat3')}</span>
             </div>
           </div>
         </div>

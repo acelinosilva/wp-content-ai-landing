@@ -1,11 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Play, Youtube } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const VIDEO_ID = 'sM1s4xG2cRM';
 
 const VideoSection = () => {
   const sectionRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -27,9 +29,9 @@ const VideoSection = () => {
 
       <div className="container">
         <div className="section-title reveal">
-          <span className="subtitle">Veja em Ação</span>
-          <h2>Do Feed ao Artigo em Minutos</h2>
-          <p>Assista como o WP Content AI transforma fontes de conteúdo em artigos otimizados para SEO de forma completamente automática.</p>
+          <span className="subtitle">{t('video.subtitle')}</span>
+          <h2>{t('video.title')}</h2>
+          <p>{t('video.description')}</p>
         </div>
 
         <div className="video-wrapper reveal">
@@ -56,14 +58,14 @@ const VideoSection = () => {
                 </div>
 
                 {/* Play button */}
-                <button className="play-btn" aria-label="Assistir vídeo">
+                <button className="play-btn" aria-label={t('video.ariaPlay') || "Assistir vídeo"}>
                   <div className="play-pulse"></div>
                   <div className="play-inner">
                     <Play size={28} fill="white" />
                   </div>
                 </button>
 
-                <div className="thumb-label">Clique para assistir</div>
+                <div className="thumb-label">{t('video.clickToWatch')}</div>
               </div>
             ) : (
               <iframe

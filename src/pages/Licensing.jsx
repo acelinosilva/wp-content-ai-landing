@@ -1,41 +1,37 @@
 import React from 'react';
 import { ArrowLeft, Award } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Licensing = () => {
+    const { t } = useLanguage();
+    const sections = t('licensing.sections') || [];
+
     return (
         <div className="legal-page">
             <div className="container py-20">
                 <Link to="/" className="back-link mb-8">
                     <ArrowLeft size={20} />
-                    Voltar para Home
+                    {t('common.backToHome')}
                 </Link>
 
-                <h1 className="mb-12">Licenciamento</h1>
+                <h1 className="mb-12">{t('licensing.title')}</h1>
 
                 <div className="legal-content glass-effect p-8 md:p-12 rounded-3xl border border-white/5">
                     <section className="mb-8">
                         <div className="flex items-center gap-3 mb-6">
                             <Award className="text-primary" size={32} />
-                            <h2 className="m-0">Detalhes da Licença Vitalícia</h2>
+                            <h2 className="m-0">{t('licensing.subtitle')}</h2>
                         </div>
-                        <p>O WP Content AI opera sob um modelo de licenciamento de software proprietário com foco na liberdade do criador de conteúdo.</p>
+                        <p>{t('licensing.description')}</p>
                     </section>
 
-                    <section className="mb-8">
-                        <h2>1. Sites Ilimitados</h2>
-                        <p>Sua licença permite o uso em qualquer site que você possua ou gerencie para clientes, sem custos adicionais por domínio.</p>
-                    </section>
-
-                    <section className="mb-8">
-                        <h2>2. Código e Modificações</h2>
-                        <p>O código do plugin é acessível. Você pode fazer modificações para uso próprio, mas não é permitida a redistribuição ou venda de versões derivadas.</p>
-                    </section>
-
-                    <section className="mb-8">
-                        <h2>3. Direitos Autorais</h2>
-                        <p>O software WP Content AI é protegido por leis de direitos autorais. A marca e o logotipo são de propriedade exclusiva da Acelino Fernandes.</p>
-                    </section>
+                    {Array.isArray(sections) && sections.map((s, i) => (
+                        <section className="mb-8" key={i}>
+                            <h2>{s.title}</h2>
+                            <p>{s.content}</p>
+                        </section>
+                    ))}
                 </div>
             </div>
 

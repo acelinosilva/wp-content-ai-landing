@@ -1,8 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import { Star, CheckCircle, Quote } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Testimonials = () => {
   const sectionRef = useRef(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -21,44 +23,19 @@ const Testimonials = () => {
     return () => { observer.disconnect(); window.removeEventListener('mousemove', handleMouseMove); };
   }, []);
 
-  const testimonials = [
-    {
-      name: "Ricardo S.",
-      role: "Especialista em SEO",
-      content: "O WP Content AI mudou o jogo para meus sites de nicho. O que antes levava horas de pesquisa e escrita, agora resolvo em minutos com uma qualidade que o Google adora. Rankeei 3 novos projetos na primeira página em menos de 20 dias.",
-      initial: "R",
-      avatarBg: "linear-gradient(135deg, #00C896 0%, #007a5c 100%)",
-      stars: 5
-    },
-    {
-      name: "Beatriz M.",
-      role: "Redatora Freelancer",
-      content: "A integração com YouTube é genial. Ela extrai os melhores pontos e cria um artigo único e rico. Meus clientes de agência estão impressionados com a velocidade de entrega e a estrutura impecável de SEO.",
-      initial: "B",
-      avatarBg: "linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)",
-      stars: 5
-    },
-    {
-      name: "Gustavo F.",
-      role: "Dono de Rede de Afiliados",
-      content: "Sinceramente, era cético com plugins de IA, mas o sistema de humanização dele é outro nível. Meus artigos não parecem 'robóticos' e a automação de links internos me economizou semanas de trabalho manual.",
-      initial: "G",
-      avatarBg: "linear-gradient(135deg, #f59e0b 0%, #b45309 100%)",
-      stars: 5
-    }
-  ];
+  const testimonialsList = t('testimonials.list') || [];
 
   return (
     <section id="testimonials" className="testimonials-section" ref={sectionRef}>
       <div className="container">
         <div className="section-title reveal">
-          <span className="subtitle">Depoimentos Reais</span>
-          <h2>Aprovado por quem domina o SEO</h2>
-          <p>Veja os resultados reais de profissionais que já automatizaram seu império de conteúdo.</p>
+          <span className="subtitle">{t('testimonials.subtitle')}</span>
+          <h2>{t('testimonials.title')}</h2>
+          <p>{t('testimonials.description')}</p>
         </div>
 
         <div className="testimonials-grid">
-          {testimonials.map((testi, index) => (
+          {Array.isArray(testimonialsList) && testimonialsList.map((testi, index) => (
             <div
               key={index}
               className="testimonial-card reveal"

@@ -1,38 +1,29 @@
 import React from 'react';
 import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Terms = () => {
+    const { t } = useLanguage();
+    const sections = t('terms.sections') || [];
+
     return (
         <div className="legal-page">
             <div className="container py-20">
                 <Link to="/" className="back-link mb-8">
                     <ArrowLeft size={20} />
-                    Voltar para Home
+                    {t('common.backToHome')}
                 </Link>
 
-                <h1 className="mb-12">Termos de Uso</h1>
+                <h1 className="mb-12">{t('terms.title')}</h1>
 
                 <div className="legal-content glass-effect p-8 md:p-12 rounded-3xl border border-white/5">
-                    <section className="mb-8">
-                        <h2>1. Aceitação dos Termos</h2>
-                        <p>Ao acessar e usar o plugin WP Content AI, você concorda em cumprir e estar vinculado a estes Termos de Uso. Se você não concordar com qualquer parte destes termos, você não deve usar nosso produto.</p>
-                    </section>
-
-                    <section className="mb-8">
-                        <h2>2. Licença de Uso</h2>
-                        <p>A licença adquirida permite que você instale e use o plugin em seus sites. A licença vitalícia é pessoal e intransferível, salvo autorização explícita.</p>
-                    </section>
-
-                    <section className="mb-8">
-                        <h2>3. Uso Responsável de IA</h2>
-                        <p>O usuário é inteiramente responsável pelo conteúdo gerado através do plugin. Embora usemos APIs de ponta (GPT-4, Claude), não garantimos a precisão absoluta de todos os textos gerados sem revisão humana.</p>
-                    </section>
-
-                    <section className="mb-8">
-                        <h2>4. Atualizações e Suporte</h2>
-                        <p>Garantimos atualizações contínuas para manter a compatibilidade com as versões mais recentes do WordPress. O suporte é oferecido conforme o plano adquirido.</p>
-                    </section>
+                    {Array.isArray(sections) && sections.map((s, i) => (
+                        <section className="mb-8" key={i}>
+                            <h2>{s.title}</h2>
+                            <p>{s.content}</p>
+                        </section>
+                    ))}
                 </div>
             </div>
 

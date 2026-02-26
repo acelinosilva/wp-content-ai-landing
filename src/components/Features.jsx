@@ -3,9 +3,11 @@ import {
   FileText, Image as ImageIcon, Search, RefreshCw,
   Settings, Zap, Shield, Globe, Youtube, Languages
 } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Features = () => {
   const sectionRef = useRef(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -29,70 +31,32 @@ const Features = () => {
     return () => { observer.disconnect(); window.removeEventListener('mousemove', handleMouseMove); };
   }, []);
 
-  const features = [
-    {
-      icon: <FileText size={24} />,
-      title: "Artigos em Massa",
-      description: "Crie centenas de artigos otimizados em minutos usando GPT-4o ou Claude 3.5 Sonnet.",
-      tag: "Criação"
-    },
-    {
-      icon: <ImageIcon size={24} />,
-      title: "Imagens com IA",
-      description: "Gera imagens realistas e relevantes para seus posts automaticamente via DALL-E 3.",
-      tag: "Mídia"
-    },
-    {
-      icon: <Search size={24} />,
-      title: "SEO On-Page",
-      description: "Automação completa de títulos, meta descriptions, alt text e estrutura H1-H6.",
-      tag: "SEO"
-    },
-    {
-      icon: <Globe size={24} />,
-      title: "SEO Autopilot",
-      description: "Links internos inteligentes e marcação schema automática para máximo desempenho.",
-      tag: "SEO"
-    },
-    {
-      icon: <RefreshCw size={24} />,
-      title: "Scraper Avançado",
-      description: "Importe e reescreva conteúdos de feeds RSS ou URLs específicas com perfeição.",
-      tag: "Importação"
-    },
-    {
-      icon: <Youtube size={24} />,
-      title: "Integração YouTube",
-      description: "O plugin encontra e incorpora vídeos relevantes para aumentar a retenção do usuário.",
-      tag: "Mídia"
-    },
-    {
-      icon: <Settings size={24} />,
-      title: "Agendamento Total",
-      description: "Defina seu cronograma e deixe o blog crescer no piloto automático por meses.",
-      tag: "Automação"
-    },
-    {
-      icon: <Shield size={24} />,
-      title: "Humanização de Texto",
-      description: "Algoritmos exclusivos que evitam detecção de IA e garantem leitura fluida.",
-      tag: "Qualidade"
-    },
-    {
-      icon: <Languages size={24} />,
-      title: "Multi-Idioma",
-      description: "Geração de conteúdo em mais de 25 idiomas com gramática e contexto impecáveis.",
-      tag: "Global"
-    }
+  // We can just get the list from translation and merge with our icons
+  const featureList = t('features.list');
+  const icons = [
+    <FileText size={24} />,
+    <ImageIcon size={24} />,
+    <Search size={24} />,
+    <Globe size={24} />,
+    <RefreshCw size={24} />,
+    <Youtube size={24} />,
+    <Settings size={24} />,
+    <Shield size={24} />,
+    <Languages size={24} />
   ];
+
+  const features = Array.isArray(featureList) ? featureList.map((feature, i) => ({
+    ...feature,
+    icon: icons[i] || <Zap size={24} />
+  })) : []; // Fallback empty array just in case
 
   return (
     <section id="features" className="features-section" ref={sectionRef}>
       <div className="container">
         <div className="section-title reveal">
-          <span className="subtitle">Poder & Automação</span>
-          <h2>Funcionalidades que vão te <br /> colocar no Topo do Google</h2>
-          <p>Tudo o que você precisa para gerenciar um império de conteúdo sem esforços manuais.</p>
+          <span className="subtitle">{t('features.subtitle')}</span>
+          <h2>{t('features.title1')} <br /> {t('features.title2')}</h2>
+          <p>{t('features.description')}</p>
         </div>
 
         <div className="features-grid">

@@ -1,8 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import { Settings, Search, Edit3, Send } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const HowItWorks = () => {
   const sectionRef = useRef(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -15,32 +17,19 @@ const HowItWorks = () => {
     return () => observer.disconnect();
   }, []);
 
-  const steps = [
-    {
-      icon: <Settings size={28} />,
-      title: "Configure Suas Chaves",
-      description: "Conecte suas APIs do GPT-4, Claude ou Gemini em poucos segundos. Basta colar a chave e salvar.",
-      detail: "Setup em menos de 2 minutos"
-    },
-    {
-      icon: <Search size={28} />,
-      title: "Escolha Suas Fontes",
-      description: "Busque palavras-chave no Google News ou conecte feeds RSS. O plugin monitora tudo em tempo real.",
-      detail: "RSS, URLs, Google News"
-    },
-    {
-      icon: <Edit3 size={28} />,
-      title: "Defina a Personalidade",
-      description: "Escolha o tom de voz, idioma e como a IA deve humanizar e estruturar seus novos artigos.",
-      detail: "+25 idiomas disponíveis"
-    },
-    {
-      icon: <Send size={28} />,
-      title: "Automatize o Sucesso",
-      description: "Agende as postagens. O WP Content AI cuida de tudo: texto, imagens, SEO e publicação.",
-      detail: "100% automático"
-    }
+  const stepsList = t('howItWorks.steps');
+  const icons = [
+    <Settings size={28} />,
+    <Search size={28} />,
+    <Edit3 size={28} />,
+    <Send size={28} />
   ];
+
+  const steps = Array.isArray(stepsList) ? stepsList.map((step, i) => ({
+    ...step,
+    icon: icons[i] || <Settings size={28} />
+  })) : [];
+
 
   return (
     <section id="how-it-works" className="how-section" ref={sectionRef}>
@@ -49,9 +38,9 @@ const HowItWorks = () => {
 
       <div className="container">
         <div className="section-title reveal">
-          <span className="subtitle">Fluxo Simples</span>
-          <h2>Como o WP Content AI Funciona?</h2>
-          <p>Deixe o trabalho pesado conosco enquanto você foca no que realmente importa: seu negócio.</p>
+          <span className="subtitle">{t('howItWorks.subtitle')}</span>
+          <h2>{t('howItWorks.title')}</h2>
+          <p>{t('howItWorks.description')}</p>
         </div>
 
         <div className="steps-container">

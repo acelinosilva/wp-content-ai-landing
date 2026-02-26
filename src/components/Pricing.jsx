@@ -1,8 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import { Check, Shield, Zap, Infinity, Clock, ArrowRight } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Pricing = () => {
   const sectionRef = useRef(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -13,21 +15,25 @@ const Pricing = () => {
     return () => observer.disconnect();
   }, []);
 
+  const features = t('pricing.features') || [];
   const plan = {
-    name: "Licença Vitalícia Ultra",
+    name: t('pricing.planName'),
     price: "95",
-    description: "Acesso completo e ilimitado para sempre. Sem pegadinhas, sem mensalidades.",
-    features: [
-      "Instale em Sites Ilimitados",
-      "Pagamento Único (Vitalício)",
-      "Sem Taxas Mensais ou Anuais",
-      "Atualizações Automáticas pra Sempre",
-      "Acesso a GPT-4o, Gemini e Claude",
-      "Humanizador de Texto Integrado",
-      "Extração de Conteúdo de Alta Qualidade",
-      "Suporte Técnico Prioritário"
-    ]
+    description: t('pricing.planDescription'),
+    features: Array.isArray(features) ? features : []
   };
+
+  const extrasData = t('pricing.extras') || [];
+  const extraIcons = [
+    <Infinity size={22} />,
+    <Clock size={22} />,
+    <Shield size={22} />
+  ];
+
+  const extras = Array.isArray(extrasData) ? extrasData.map((item, i) => ({
+    ...item,
+    icon: extraIcons[i] || <Shield size={22} />
+  })) : [];
 
   return (
     <section id="pricing" className="pricing-section" ref={sectionRef}>
@@ -35,9 +41,9 @@ const Pricing = () => {
 
       <div className="container">
         <div className="section-title reveal">
-          <span className="subtitle">Preço Justo</span>
-          <h2>Investimento Único, Resultados Infinitos</h2>
-          <p>Elimine mensalidades caras. Tenha o poder da IA no seu WordPress com o melhor custo-benefício do mercado.</p>
+          <span className="subtitle">{t('pricing.subtitle')}</span>
+          <h2>{t('pricing.title')}</h2>
+          <p>{t('pricing.description')}</p>
         </div>
 
         <div className="single-pricing-container">
@@ -47,7 +53,7 @@ const Pricing = () => {
 
             <div className="card-badge">
               <Zap size={12} fill="currentColor" />
-              Oferta de Lançamento
+              {t('pricing.offer')}
             </div>
 
             <div className="card-header">
@@ -61,8 +67,8 @@ const Pricing = () => {
                 <span className="amount">{plan.price}</span>
               </div>
               <div className="price-right">
-                <div className="price-tag">Pagamento Único</div>
-                <div className="price-forever">para sempre</div>
+                <div className="price-tag">{t('pricing.paymentType')}</div>
+                <div className="price-forever">{t('pricing.forever')}</div>
               </div>
             </div>
 
@@ -80,22 +86,18 @@ const Pricing = () => {
             <div className="cta-area">
               <a href="https://pay.kiwify.com.br/aoO4x6M" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-huge">
                 <Zap size={18} fill="currentColor" />
-                Quero Minha Licença Agora
+                {t('pricing.cta')}
                 <ArrowRight size={18} />
               </a>
               <div className="payment-security">
                 <Shield size={14} />
-                <span>Compra 100% Segura &amp; Garantia de 7 Dias</span>
+                <span>{t('pricing.security')}</span>
               </div>
             </div>
           </div>
 
           <div className="pricing-extras reveal" style={{ transitionDelay: '0.2s' }}>
-            {[
-              { icon: <Infinity size={22} />, title: 'Sites Ilimitados', desc: 'Não limite seu crescimento. Use em quantos projetos quiser.' },
-              { icon: <Clock size={22} />, title: 'Vitalício Real', desc: 'Pague uma vez, use para sempre. Esqueça assinaturas.' },
-              { icon: <Shield size={22} />, title: 'Garantia Total', desc: '7 dias para testar ou seu dinheiro de volta.' }
-            ].map((item, i) => (
+            {extras.map((item, i) => (
               <div key={i} className="extra-item">
                 <div className="extra-icon">{item.icon}</div>
                 <div className="extra-text">

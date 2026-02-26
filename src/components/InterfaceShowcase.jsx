@@ -1,61 +1,34 @@
 import React, { useState } from 'react';
 import { Eye, Layout, Settings, MessageSquare, Users, Zap, Wand2, Maximize2, X } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const InterfaceShowcase = () => {
   const [activeTab, setActiveTab] = useState(0);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+  const { t } = useLanguage();
 
-  const screens = [
-    {
-      id: 0,
-      title: "Painel de Feeds",
-      description: "Gerencie todas as suas fontes de conteúdo em um só lugar. Monitore feeds RSS e Google News em tempo real.",
-      image: "/screenshots/feeds.jpg",
-      icon: <Layout size={20} />
-    },
-    {
-      id: 1,
-      title: "Assistente de Configuração",
-      description: "Configuração guiada passo a passo para conectar suas APIs e definir suas preferências iniciais.",
-      image: "/screenshots/wizard.jpg",
-      icon: <Wand2 size={20} />
-    },
-    {
-      id: 2,
-      title: "Motor de Inteligência",
-      description: "Escolha entre Gemini, GPT-4 ou Claude. Flexibilidade total para usar o melhor modelo para cada nicho.",
-      image: "/screenshots/settings.jpg",
-      icon: <Zap size={20} />
-    },
-    {
-      id: 3,
-      title: "Personalização de Prompts",
-      description: "Controle total sobre o tom de voz, estrutura e SEO através de modelos de prompts customizáveis.",
-      image: "/screenshots/prompts.jpg",
-      icon: <MessageSquare size={20} />
-    },
-    {
-      id: 4,
-      title: "Estilos de Escrita (Personas)",
-      description: "Crie personas únicas com tons de voz variados. O plugin se adapta à personalidade da sua marca automaticamente.",
-      image: "/screenshots/personas_list.jpg",
-      icon: <Users size={20} />
-    },
-    {
-      id: 5,
-      title: "Configurações Avançadas",
-      description: "Controle total sobre limites de processamento, intervalos de cron, humanização de texto e links automáticos.",
-      image: "/screenshots/full_settings.jpg",
-      icon: <Settings size={20} />
-    }
+  const screensData = t('interface.screens');
+  const baseScreens = [
+    { id: 0, image: "/screenshots/feeds.jpg", icon: <Layout size={20} /> },
+    { id: 1, image: "/screenshots/wizard.jpg", icon: <Wand2 size={20} /> },
+    { id: 2, image: "/screenshots/settings.jpg", icon: <Zap size={20} /> },
+    { id: 3, image: "/screenshots/prompts.jpg", icon: <MessageSquare size={20} /> },
+    { id: 4, image: "/screenshots/personas_list.jpg", icon: <Users size={20} /> },
+    { id: 5, image: "/screenshots/full_settings.jpg", icon: <Settings size={20} /> }
   ];
+
+  const screens = Array.isArray(screensData) ? screensData.map((s, i) => ({
+    ...baseScreens[i],
+    title: s.title,
+    description: s.description
+  })) : baseScreens;
 
   return (
     <section id="interface" className="interface-section">
       <div className="container">
         <div className="section-title">
-          <h2>Qualidade e Controle Total</h2>
-          <p>Interface de alta definição projetada para máxima produtividade e clareza nos detalhes.</p>
+          <h2>{t('interface.title')}</h2>
+          <p>{t('interface.description')}</p>
         </div>
 
         <div className="interface-tabs">
@@ -77,28 +50,28 @@ const InterfaceShowcase = () => {
           <div className="tab-content glass-effect">
             <div className="screen-header">
               <div className="screen-info">
-                <h3>{screens[activeTab].title}</h3>
-                <p>{screens[activeTab].description}</p>
+                <h3>{screens[activeTab]?.title}</h3>
+                <p>{screens[activeTab]?.description}</p>
               </div>
               <button
                 className="btn-zoom"
                 onClick={() => setIsLightboxOpen(true)}
-                title="Ver em tamanho real"
+                title={t('interface.viewFullSize')}
               >
-                <Maximize2 size={20} /> Ampliar
+                <Maximize2 size={20} /> {t('interface.enlarge')}
               </button>
             </div>
 
             <div className="screen-preview" onClick={() => setIsLightboxOpen(true)}>
               <img
-                src={screens[activeTab].image}
-                alt={screens[activeTab].title}
+                src={screens[activeTab]?.image}
+                alt={screens[activeTab]?.title}
                 className="animate-fade-in high-quality"
-                key={screens[activeTab].id}
+                key={screens[activeTab]?.id}
               />
               <div className="screen-overlay">
                 <Maximize2 size={32} />
-                <span>Clique para ver em alta definição</span>
+                <span>{t('interface.clickToViewHighDef')}</span>
               </div>
             </div>
           </div>

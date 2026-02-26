@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import ScrollToTop from './components/ScrollToTop'
+import { LanguageProvider } from './contexts/LanguageContext'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import Features from './components/Features'
@@ -32,19 +33,21 @@ const MainLanding = () => (
 
 function App() {
     return (
-        <Router>
-            <ScrollToTop />
-            <div className="app-container">
-                <Header />
-                <Routes>
-                    <Route path="/" element={<MainLanding />} />
-                    <Route path="/terms" element={<Terms />} />
-                    <Route path="/privacy" element={<Privacy />} />
-                    <Route path="/licensing" element={<Licensing />} />
-                </Routes>
-                <Footer />
-            </div>
-        </Router>
+        <LanguageProvider>
+            <Router>
+                <ScrollToTop />
+                <div className="app-container">
+                    <Header />
+                    <Routes>
+                        <Route path="/" element={<MainLanding />} />
+                        <Route path="/terms" element={<Terms />} />
+                        <Route path="/privacy" element={<Privacy />} />
+                        <Route path="/licensing" element={<Licensing />} />
+                    </Routes>
+                    <Footer />
+                </div>
+            </Router>
+        </LanguageProvider>
     )
 }
 

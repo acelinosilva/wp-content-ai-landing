@@ -1,41 +1,37 @@
 import React from 'react';
 import { ArrowLeft, Shield } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Privacy = () => {
+    const { t } = useLanguage();
+    const sections = t('privacy.sections') || [];
+
     return (
         <div className="legal-page">
             <div className="container py-20">
                 <Link to="/" className="back-link mb-8">
                     <ArrowLeft size={20} />
-                    Voltar para Home
+                    {t('common.backToHome')}
                 </Link>
 
-                <h1 className="mb-12">Política de Privacidade</h1>
+                <h1 className="mb-12">{t('privacy.title')}</h1>
 
                 <div className="legal-content glass-effect p-8 md:p-12 rounded-3xl border border-white/5">
                     <section className="mb-8">
                         <div className="flex items-center gap-3 mb-6">
                             <Shield className="text-primary" size={32} />
-                            <h2 className="m-0">Sua privacidade é nossa prioridade</h2>
+                            <h2 className="m-0">{t('privacy.subtitle')}</h2>
                         </div>
-                        <p>O WP Content AI leva a segurança dos seus dados a sério. Esta política descreve como tratamos as informações coletadas durante o uso do nosso plugin e site.</p>
+                        <p>{t('privacy.description')}</p>
                     </section>
 
-                    <section className="mb-8">
-                        <h2>1. Chaves de API</h2>
-                        <p>Suas chaves de API do OpenAI, Anthropic ou Google são armazenadas localmente no SEU banco de dados WordPress. Nós NUNCA temos acesso às suas chaves ou ao conteúdo gerado por elas.</p>
-                    </section>
-
-                    <section className="mb-8">
-                        <h2>2. Dados Coletados</h2>
-                        <p>Coletamos apenas informações básicas para validação de licença e estatísticas de uso anônimas para melhoraria do produto. Não vendemos seus dados para terceiros.</p>
-                    </section>
-
-                    <section className="mb-8">
-                        <h2>3. Cookies</h2>
-                        <p>Usamos cookies apenas para garantir a funcionalidade do site e analisar o tráfego de forma agregada.</p>
-                    </section>
+                    {Array.isArray(sections) && sections.map((s, i) => (
+                        <section className="mb-8" key={i}>
+                            <h2>{s.title}</h2>
+                            <p>{s.content}</p>
+                        </section>
+                    ))}
                 </div>
             </div>
 

@@ -1,0 +1,330 @@
+{
+    "header": {
+        "features": "Funcionalidades",
+        "howItWorks": "Como Funciona",
+        "pricing": "Preços",
+        "faq": "FAQ",
+        "startNow": "Começar Agora",
+        "navLang": "Mudar idioma"
+    },
+    "hero": {
+        "launch": "Lançamento: WP Content AI v2.0",
+        "new": "NOVO",
+        "title1": "Transforme seu WordPress em uma",
+        "title2": "Máquina de Conteúdo",
+        "title3": "com IA",
+        "description": "O primeiro plugin brasileiro que automatiza a criação de artigos, imagens e otimização SEO completa usando as melhores IAs do mercado. Economize 20+ horas semanais e domine o Google.",
+        "ctaPrimary": "Quero Começar Agora",
+        "ctaSecondary": "Ver Funcionalidades",
+        "stat1": "Mais Rápido",
+        "stat2": "Automação",
+        "stat3": "Economizadas/Semana"
+    },
+    "features": {
+        "subtitle": "Poder & Automação",
+        "title1": "Funcionalidades que vão te",
+        "title2": "colocar no Topo do Google",
+        "description": "Tudo o que você precisa para gerenciar um império de conteúdo sem esforços manuais.",
+        "list": [
+            {
+                "title": "Artigos em Massa",
+                "description": "Crie centenas de artigos otimizados em minutos usando GPT-4o ou Claude 3.5 Sonnet.",
+                "tag": "Criação"
+            },
+            {
+                "title": "Imagens com IA",
+                "description": "Gera imagens realistas e relevantes para seus posts automaticamente via DALL-E 3.",
+                "tag": "Mídia"
+            },
+            {
+                "title": "SEO On-Page",
+                "description": "Automação completa de títulos, meta descriptions, alt text e estrutura H1-H6.",
+                "tag": "SEO"
+            },
+            {
+                "title": "SEO Autopilot",
+                "description": "Links internos inteligentes e marcação schema automática para máximo desempenho.",
+                "tag": "SEO"
+            },
+            {
+                "title": "Scraper Avançado",
+                "description": "Importe e reescreva conteúdos de feeds RSS ou URLs específicas com perfeição.",
+                "tag": "Importação"
+            },
+            {
+                "title": "Integração YouTube",
+                "description": "O plugin encontra e incorpora vídeos relevantes para aumentar a retenção do usuário.",
+                "tag": "Mídia"
+            },
+            {
+                "title": "Agendamento Total",
+                "description": "Defina seu cronograma e deixe o blog crescer no piloto automático por meses.",
+                "tag": "Automação"
+            },
+            {
+                "title": "Humanização de Texto",
+                "description": "Algoritmos exclusivos que evitam detecção de IA e garantem leitura fluida.",
+                "tag": "Qualidade"
+            },
+            {
+                "title": "Multi-Idioma",
+                "description": "Geração de conteúdo em mais de 25 idiomas com gramática e contexto impecáveis.",
+                "tag": "Global"
+            }
+        ]
+    },
+    "howItWorks": {
+        "subtitle": "Fluxo Simples",
+        "title": "Como o WP Content AI Funciona?",
+        "description": "Deixe o trabalho pesado conosco enquanto você foca no que realmente importa: seu negócio.",
+        "steps": [
+            {
+                "title": "Configure Suas Chaves",
+                "description": "Conecte suas APIs do GPT-4, Claude ou Gemini em poucos segundos. Basta colar a chave e salvar.",
+                "detail": "Setup em menos de 2 minutos"
+            },
+            {
+                "title": "Escolha Suas Fontes",
+                "description": "Busque palavras-chave no Google News ou conecte feeds RSS. O plugin monitora tudo em tempo real.",
+                "detail": "RSS, URLs, Google News"
+            },
+            {
+                "title": "Defina a Personalidade",
+                "description": "Escolha o tom de voz, idioma e como a IA deve humanizar e estruturar seus novos artigos.",
+                "detail": "+25 idiomas disponíveis"
+            },
+            {
+                "title": "Automatize o Sucesso",
+                "description": "Agende as postagens. O WP Content AI cuida de tudo: texto, imagens, SEO e publicação.",
+                "detail": "100% automático"
+            }
+        ]
+    },
+    "video": {
+        "subtitle": "Veja em Ação",
+        "title": "Do Feed ao Artigo em Minutos",
+        "description": "Assista como o WP Content AI transforma fontes de conteúdo em artigos otimizados para SEO de forma completamente automática.",
+        "clickToWatch": "Clique para assistir",
+        "ariaPlay": "Assistir vídeo"
+    },
+    "interface": {
+        "title": "Qualidade e Controle Total",
+        "description": "Interface de alta definição projetada para máxima produtividade e clareza nos detalhes.",
+        "enlarge": "Ampliar",
+        "viewFullSize": "Ver em tamanho real",
+        "clickToViewHighDef": "Clique para ver em alta definição",
+        "screens": [
+            {
+                "title": "Painel de Feeds",
+                "description": "Gerencie todas as suas fontes de conteúdo em um só lugar. Monitore feeds RSS e Google News em tempo real."
+            },
+            {
+                "title": "Assistente de Configuração",
+                "description": "Configuração guiada passo a passo para conectar suas APIs e definir suas preferências iniciais."
+            },
+            {
+                "title": "Motor de Inteligência",
+                "description": "Escolha entre Gemini, GPT-4 ou Claude. Flexibilidade total para usar o melhor modelo para cada nicho."
+            },
+            {
+                "title": "Personalização de Prompts",
+                "description": "Controle total sobre o tom de voz, estrutura e SEO através de modelos de prompts customizáveis."
+            },
+            {
+                "title": "Estilos de Escrita (Personas)",
+                "description": "Crie personas únicas com tons de voz variados. O plugin se adapta à personalidade da sua marca automaticamente."
+            },
+            {
+                "title": "Configurações Avançadas",
+                "description": "Controle total sobre limites de processamento, intervalos de cron, humanização de texto e links automáticos."
+            }
+        ]
+    },
+    "testimonials": {
+        "subtitle": "Depoimentos Reais",
+        "title": "Aprovado por quem domina o SEO",
+        "description": "Veja os resultados reais de profissionais que já automatizaram seu império de conteúdo.",
+        "list": [
+            {
+                "name": "Ricardo S.",
+                "role": "Especialista em SEO",
+                "content": "O WP Content AI mudou o jogo para meus sites de nicho. O que antes levava horas de pesquisa e escrita, agora resolvo em minutos com uma qualidade que o Google adora. Rankeei 3 novos projetos na primeira página em menos de 20 dias.",
+                "initial": "R",
+                "avatarBg": "linear-gradient(135deg, #00C896 0%, #007a5c 100%)",
+                "stars": 5
+            },
+            {
+                "name": "Beatriz M.",
+                "role": "Redatora Freelancer",
+                "content": "A integração com YouTube é genial. Ela extrai os melhores pontos e cria um artigo único e rico. Meus clientes de agência estão impressionados com a velocidade de entrega e a estrutura impecável de SEO.",
+                "initial": "B",
+                "avatarBg": "linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)",
+                "stars": 5
+            },
+            {
+                "name": "Gustavo F.",
+                "role": "Dono de Rede de Afiliados",
+                "content": "Sinceramente, era cético com plugins de IA, mas o sistema de humanização dele é outro nível. Meus artigos não parecem 'robóticos' e a automação de links internos me economizou semanas de trabalho manual.",
+                "initial": "G",
+                "avatarBg": "linear-gradient(135deg, #f59e0b 0%, #b45309 100%)",
+                "stars": 5
+            }
+        ]
+    },
+    "pricing": {
+        "subtitle": "Preço Justo",
+        "title": "Investimento Único, Resultados Infinitos",
+        "description": "Elimine mensalidades caras. Tenha o poder da IA no seu WordPress com o melhor custo-benefício do mercado.",
+        "planName": "Licença Vitalícia Ultra",
+        "planDescription": "Acesso completo e ilimitado para sempre. Sem pegadinhas, sem mensalidades.",
+        "offer": "Oferta de Lançamento",
+        "paymentType": "Pagamento Único",
+        "forever": "para sempre",
+        "cta": "Quero Minha Licença Agora",
+        "security": "Compra 100% Segura & Garantia de 7 Dias",
+        "features": [
+            "Instale em Sites Ilimitados",
+            "Pagamento Único (Vitalício)",
+            "Sem Taxas Mensais ou Anuais",
+            "Atualizações Automáticas pra Sempre",
+            "Acesso a GPT-4o, Gemini e Claude",
+            "Humanizador de Texto Integrado",
+            "Extração de Conteúdo de Alta Qualidade",
+            "Suporte Técnico Prioritário"
+        ],
+        "extras": [
+            {
+                "title": "Sites Ilimitados",
+                "desc": "Não limite seu crescimento. Use em quantos projetos quiser."
+            },
+            {
+                "title": "Vitalício Real",
+                "desc": "Pague uma vez, use para sempre. Esqueça assinaturas."
+            },
+            {
+                "title": "Garantia Total",
+                "desc": "7 dias para testar ou seu dinheiro de volta."
+            }
+        ]
+    },
+    "faq": {
+        "subtitle": "Dúvidas",
+        "title": "Dúvidas Frequentes",
+        "description": "Tudo o que você precisa saber antes de automatizar seu blog.",
+        "list": [
+            {
+                "question": "O Google penaliza conteúdo gerado por IA?",
+                "answer": "Absolutamente não. O Google declarou oficialmente que foca na qualidade do conteúdo, não em como ele foi produzido. O WP Content AI gera conteúdo estruturado para humanos, garantindo valor real aos seus leitores."
+            },
+            {
+                "question": "Preciso de uma chave da API do OpenAI?",
+                "answer": "Sim, você precisará da sua própria chave de API para os custos de processamento. No entanto, o WP Content AI é extremamente eficiente, operando com custos mínimos — aproximadamente R$ 0,05 por artigo longo. Você também pode usar Gemini ou Claude como alternativa."
+            },
+            {
+                "question": "Funciona em qualquer tema de WordPress?",
+                "answer": "Sim! O plugin foi testado com os principais temas do mercado (Elementor, Astra, GeneratePress, Divi, Kadence) e segue os padrões nativos do WordPress, garantindo compatibilidade total independente do tema."
+            },
+            {
+                "question": "O plugin escreve em Português?",
+                "answer": "Sim, o foco principal do WP Content AI é o Português do Brasil, mas ele suporta mais de 25 idiomas com perfeição gramatical, incluindo Inglês, Espanhol, Francês, Alemão, Italiano e muito mais."
+            },
+            {
+                "question": "O plugin é compatível com Rank Math e Yoast SEO?",
+                "answer": "Sim! O WP Content AI possui integração nativa com Rank Math SEO e Yoast SEO. Ele preenche automaticamente o título SEO, meta description, palavra-chave primária e configurações de robots meta para garantir o máximo desempenho em ambas as plataformas."
+            },
+            {
+                "question": "Posso usar em WordPress Multisite?",
+                "answer": "Sim, a licença vitalícia permite a instalação em sites ilimitados, incluindo redes WordPress Multisite. Cada subsite pode ter sua própria configuração de feeds, API e personalidade de escrita de forma independente."
+            },
+            {
+                "question": "As atualizações futuras estão incluídas?",
+                "answer": "Sim! Ao adquirir a licença vitalícia, você recebe todas as atualizações futuras do plugin gratuitamente e para sempre. Novas funcionalidades, integrações com novos modelos de IA e melhorias de desempenho são entregues automaticamente."
+            },
+            {
+                "question": "É possível personalizar o estilo e o tom dos artigos?",
+                "answer": "Totalmente. Você pode criar múltiplas 'Personas' com tons de voz diferentes (formal, descontraído, jornalístico, técnico) e personalizar prompts para cada feed separadamente. O plugin também possui humanizador de texto para garantir uma leitura natural e fluida."
+            }
+        ]
+    },
+    "footer": {
+        "brandDescription": "Liderando a revolução da inteligência artificial aplicada ao WordPress. Criado para profissionais que levam SEO e conteúdo a sério.",
+        "product": "Produto",
+        "features": "Funcionalidades",
+        "pricing": "Preços",
+        "roadmap": "Roadmap",
+        "testimonials": "Depoimentos",
+        "support": "Suporte",
+        "documentation": "Documentação",
+        "helpCenter": "Central de Ajuda",
+        "contact": "Contato",
+        "legal": "Legal",
+        "termsOfUse": "Termos de Uso",
+        "privacyPolicy": "Privacidade",
+        "licensing": "Licenciamento",
+        "copyright": "WP Content AI. Todos os direitos reservados.",
+        "lastUpdate": "Última atualização:",
+        "madeIn": "🇧🇷 Orgulhosamente brasileiro."
+    },
+    "common": {
+        "backToHome": "Voltar para Home"
+    },
+    "terms": {
+        "title": "Termos de Uso",
+        "sections": [
+            {
+                "title": "1. Aceitação dos Termos",
+                "content": "Ao acessar e usar o plugin WP Content AI, você concorda em cumprir e estar vinculado a estes Termos de Uso. Se você não concordar com qualquer parte destes termos, você não deve usar nosso produto."
+            },
+            {
+                "title": "2. Licença de Uso",
+                "content": "A licença adquirida permite que você instale e use o plugin em seus sites. A licença vitalícia é pessoal e intransferível, salvo autorização explícita."
+            },
+            {
+                "title": "3. Uso Responsável de IA",
+                "content": "O usuário é inteiramente responsável pelo conteúdo gerado através do plugin. Embora usemos APIs de ponta (GPT-4, Claude), não garantimos a precisão absoluta de todos os textos gerados sem revisão humana."
+            },
+            {
+                "title": "4. Atualizações e Suporte",
+                "content": "Garantimos atualizações contínuas para manter a compatibilidade com as versões mais recentes do WordPress. O suporte é oferecido conforme o plano adquirido."
+            }
+        ]
+    },
+    "privacy": {
+        "title": "Política de Privacidade",
+        "subtitle": "Sua privacidade é nossa prioridade",
+        "description": "O WP Content AI leva a segurança dos seus dados a sério. Esta política descreve como tratamos as informações coletadas durante o uso do nosso plugin e site.",
+        "sections": [
+            {
+                "title": "1. Chaves de API",
+                "content": "Suas chaves de API do OpenAI, Anthropic ou Google são armazenadas localmente no SEU banco de dados WordPress. Nós NUNCA temos acesso às suas chaves ou ao conteúdo gerado por elas."
+            },
+            {
+                "title": "2. Dados Coletados",
+                "content": "Coletamos apenas informações básicas para validação de licença e estatísticas de uso anônimas para melhoraria do produto. Não vendemos seus dados para terceiros."
+            },
+            {
+                "title": "3. Cookies",
+                "content": "Usamos cookies apenas para garantir a funcionalidade do site e analisar o tráfego de forma agregada."
+            }
+        ]
+    },
+    "licensing": {
+        "title": "Licenciamento",
+        "subtitle": "Detalhes da Licença Vitalícia",
+        "description": "O WP Content AI opera sob um modelo de licenciamento de software proprietário com foco na liberdade do criador de conteúdo.",
+        "sections": [
+            {
+                "title": "1. Sites Ilimitados",
+                "content": "Sua licença permite o uso em qualquer site que você possua ou gerencie para clientes, sem custos adicionais por domínio."
+            },
+            {
+                "title": "2. Código e Modificações",
+                "content": "O código do plugin é acessível. Você pode fazer modificações para uso próprio, mas não é permitida a redistribuição ou venda de versões derivadas."
+            },
+            {
+                "title": "3. Direitos Autorais",
+                "content": "O software WP Content AI é protegido por leis de direitos autorais. A marca e o logotipo são de propriedade exclusiva da Acelino Fernandes."
+            }
+        ]
+    }
+}

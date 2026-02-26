@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ChevronDown } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState(0);
   const sectionRef = useRef(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     // Reveal only the section title and container — not individual items
@@ -15,48 +17,16 @@ const FAQ = () => {
     return () => observer.disconnect();
   }, []);
 
-  const faqs = [
-    {
-      question: "O Google penaliza conteúdo gerado por IA?",
-      answer: "Absolutamente não. O Google declarou oficialmente que foca na qualidade do conteúdo, não em como ele foi produzido. O WP Content AI gera conteúdo estruturado para humanos, garantindo valor real aos seus leitores."
-    },
-    {
-      question: "Preciso de uma chave da API do OpenAI?",
-      answer: "Sim, você precisará da sua própria chave de API para os custos de processamento. No entanto, o WP Content AI é extremamente eficiente, operando com custos mínimos — aproximadamente R$ 0,05 por artigo longo. Você também pode usar Gemini ou Claude como alternativa."
-    },
-    {
-      question: "Funciona em qualquer tema de WordPress?",
-      answer: "Sim! O plugin foi testado com os principais temas do mercado (Elementor, Astra, GeneratePress, Divi, Kadence) e segue os padrões nativos do WordPress, garantindo compatibilidade total independente do tema."
-    },
-    {
-      question: "O plugin escreve em Português?",
-      answer: "Sim, o foco principal do WP Content AI é o Português do Brasil, mas ele suporta mais de 25 idiomas com perfeição gramatical, incluindo Inglês, Espanhol, Francês, Alemão, Italiano e muito mais."
-    },
-    {
-      question: "O plugin é compatível com Rank Math e Yoast SEO?",
-      answer: "Sim! O WP Content AI possui integração nativa com Rank Math SEO e Yoast SEO. Ele preenche automaticamente o título SEO, meta description, palavra-chave primária e configurações de robots meta para garantir o máximo desempenho em ambas as plataformas."
-    },
-    {
-      question: "Posso usar em WordPress Multisite?",
-      answer: "Sim, a licença vitalícia permite a instalação em sites ilimitados, incluindo redes WordPress Multisite. Cada subsite pode ter sua própria configuração de feeds, API e personalidade de escrita de forma independente."
-    },
-    {
-      question: "As atualizações futuras estão incluídas?",
-      answer: "Sim! Ao adquirir a licença vitalícia, você recebe todas as atualizações futuras do plugin gratuitamente e para sempre. Novas funcionalidades, integrações com novos modelos de IA e melhorias de desempenho são entregues automaticamente."
-    },
-    {
-      question: "É possível personalizar o estilo e o tom dos artigos?",
-      answer: "Totalmente. Você pode criar múltiplas 'Personas' com tons de voz diferentes (formal, descontraído, jornalístico, técnico) e personalizar prompts para cada feed separadamente. O plugin também possui humanizador de texto para garantir uma leitura natural e fluida."
-    }
-  ];
+  const faqsData = t('faq.list');
+  const faqs = Array.isArray(faqsData) ? faqsData : [];
 
   return (
     <section id="faq" className="faq-section" ref={sectionRef}>
       <div className="container">
         <div className="section-title reveal">
-          <span className="subtitle">Dúvidas</span>
-          <h2>Dúvidas Frequentes</h2>
-          <p>Tudo o que você precisa saber antes de automatizar seu blog.</p>
+          <span className="subtitle">{t('faq.subtitle')}</span>
+          <h2>{t('faq.title')}</h2>
+          <p>{t('faq.description')}</p>
         </div>
 
         <div className="faq-container reveal">

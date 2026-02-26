@@ -12,35 +12,35 @@ const LanguageSwitcher = ({ mobile = false }) => {
       alignItems: 'center',
       padding: mobile ? '12px 16px' : '0'
     }}>
-      <button
+      <a
+        href="?lang=pt"
         onClick={(e) => { e.preventDefault(); setLanguage('pt'); }}
         style={{
           opacity: language === 'pt' ? 1 : 0.5,
-          background: 'none',
-          border: 'none',
-          cursor: 'pointer',
+          textDecoration: 'none',
           color: 'white',
           fontWeight: 'bold',
           padding: '4px'
         }}
+        aria-label="Mudar para Português"
       >
         PT
-      </button>
+      </a>
       <span style={{ color: 'rgba(255,255,255,0.3)' }}>|</span>
-      <button
+      <a
+        href="?lang=en"
         onClick={(e) => { e.preventDefault(); setLanguage('en'); }}
         style={{
           opacity: language === 'en' ? 1 : 0.5,
-          background: 'none',
-          border: 'none',
-          cursor: 'pointer',
+          textDecoration: 'none',
           color: 'white',
           fontWeight: 'bold',
           padding: '4px'
         }}
+        aria-label="Switch to English"
       >
         EN
-      </button>
+      </a>
     </div>
   );
 };

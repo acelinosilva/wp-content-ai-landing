@@ -7,7 +7,19 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://wpcontentai.net/?lang=en</loc>
+    <lastmod>2026-02-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
     <loc>https://wpcontentai.net/terms/</loc>
+    <lastmod>2026-02-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://wpcontentai.net/terms/?lang=en</loc>
     <lastmod>2026-02-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -19,7 +31,19 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://wpcontentai.net/privacy/?lang=en</loc>
+    <lastmod>2026-02-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://wpcontentai.net/licensing/</loc>
+    <lastmod>2026-02-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://wpcontentai.net/licensing/?lang=en</loc>
     <lastmod>2026-02-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

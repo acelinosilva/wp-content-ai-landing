@@ -62,7 +62,12 @@ const Footer = () => {
 
         <div className="footer-bottom">
           <p>&copy; {new Date().getFullYear()} WP Content AI. Todos os direitos reservados.</p>
-          <p className="footer-made">🇧🇷 Orgulhosamente brasileiro.</p>
+          <p className="footer-made">
+            <span style={{ opacity: 0.6, fontSize: '0.75rem', marginRight: '15px' }}>
+              Última atualização: {new Date().toLocaleDateString('pt-BR')}
+            </span>
+            🇧🇷 Orgulhosamente brasileiro.
+          </p>
         </div>
       </div>
 

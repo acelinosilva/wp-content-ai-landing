@@ -78,11 +78,11 @@ const Pricing = () => {
             </ul>
 
             <div className="cta-area">
-              <button className="btn btn-primary btn-huge">
+              <a href="https://pay.kiwify.com.br/aoO4x6M" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-huge">
                 <Zap size={18} fill="currentColor" />
                 Quero Minha Licença Agora
                 <ArrowRight size={18} />
-              </button>
+              </a>
               <div className="payment-security">
                 <Shield size={14} />
                 <span>Compra 100% Segura &amp; Garantia de 7 Dias</span>

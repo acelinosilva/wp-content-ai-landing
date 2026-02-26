@@ -41,7 +41,7 @@ const Header = () => {
                 {link.name}
               </a>
             ))}
-            <a href="#pricing" className="btn btn-primary nav-cta">
+            <a href="https://pay.kiwify.com.br/aoO4x6M" target="_blank" rel="noopener noreferrer" className="btn btn-primary nav-cta">
               Começar Agora
             </a>
           </nav>
@@ -69,7 +69,7 @@ const Header = () => {
                 {link.name}
               </a>
             ))}
-            <a href="#pricing" className="btn btn-primary" style={{ width: '100%' }} onClick={() => setMobileMenuOpen(false)}>
+            <a href="https://pay.kiwify.com.br/aoO4x6M" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ width: '100%' }} onClick={() => setMobileMenuOpen(false)}>
               Começar Agora
             </a>
           </div>

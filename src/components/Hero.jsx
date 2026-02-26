@@ -46,7 +46,7 @@ const Hero = () => {
         </p>
 
         <div className="hero-btns">
-          <a href="#pricing" className="btn btn-primary btn-lg">
+          <a href="https://pay.kiwify.com.br/aoO4x6M" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-lg">
             Quero Começar Agora <ArrowRight size={20} />
           </a>
           <a href="#features" className="btn btn-secondary btn-lg">

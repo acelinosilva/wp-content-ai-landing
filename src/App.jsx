@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
 import ScrollToTop from './components/ScrollToTop'
 import { LanguageProvider } from './contexts/LanguageContext'
 import Header from './components/Header'
@@ -18,18 +18,40 @@ import Terms from './pages/Terms'
 import Privacy from './pages/Privacy'
 import Licensing from './pages/Licensing'
 
-const MainLanding = () => (
-    <main>
-        <Hero />
-        <Features />
-        <HowItWorks />
-        <VideoSection />
-        <InterfaceShowcase />
-        <Testimonials />
-        <Pricing />
-        <FAQ />
-    </main>
-);
+const MainLanding = () => {
+    const location = useLocation();
+
+    React.useEffect(() => {
+        if (location.hash) {
+            const id = location.hash.replace('#', '');
+            const element = document.getElementById(id);
+            if (element) {
+                setTimeout(() => {
+                    const headerOffset = 80;
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                }, 100);
+            }
+        }
+    }, [location]);
+
+    return (
+        <main>
+            <Hero />
+            <Features />
+            <HowItWorks />
+            <VideoSection />
+            <InterfaceShowcase />
+            <Testimonials />
+            <Pricing />
+            <FAQ />
+        </main>
+    );
+};
 
 function App() {
     return (

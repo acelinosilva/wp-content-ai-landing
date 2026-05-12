@@ -57,11 +57,32 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleNavClick = (e, href) => {
+    // If it's an external link, let it be
+    if (href.startsWith('http')) return;
+
+    const targetId = href.replace('/#', '').replace('#', '');
+    const element = document.getElementById(targetId);
+
+    if (location.pathname === '/' && element) {
+      e.preventDefault();
+      const headerOffset = 80;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+      setMobileMenuOpen(false);
+    }
+  };
+
   const navLinks = [
-    { name: t('header.features'), href: '/#features' },
-    { name: t('header.howItWorks'), href: '/#how-it-works' },
-    { name: t('header.pricing'), href: '/#pricing' },
-    { name: t('header.faq'), href: '/#faq' },
+    { name: t('header.features'), href: '#features' },
+    { name: t('header.howItWorks'), href: '#how-it-works' },
+    { name: t('header.pricing'), href: '#pricing' },
+    { name: t('header.faq'), href: '#faq' },
   ];
 
   return (
@@ -81,9 +102,14 @@ const Header = () => {
           {/* Desktop Nav */}
           <nav className="desktop-nav" aria-label={t('header.navLang') || "Navegação Principal"}>
             {navLinks.map((link) => (
-              <a key={link.href} href={link.href} className="nav-link">
+              <Link 
+                key={link.href} 
+                to={location.pathname === '/' ? `/${link.href}` : `/${link.href}`} 
+                className="nav-link"
+                onClick={(e) => handleNavClick(e, link.href)}
+              >
                 {link.name}
-              </a>
+              </Link>
             ))}
             <LanguageSwitcher />
             <a href="https://pay.kiwify.com.br/aoO4x6M" target="_blank" rel="noopener noreferrer" className="btn btn-primary nav-cta">
@@ -105,14 +131,14 @@ const Header = () => {
         {mobileMenuOpen && (
           <div className="mobile-menu animate-fade-in">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
-                href={link.href}
+                to={`/${link.href}`}
                 className="mobile-link"
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={(e) => handleNavClick(e, link.href)}
               >
                 {link.name}
-              </a>
+              </Link>
             ))}
             <LanguageSwitcher mobile />
             <a href="https://pay.kiwify.com.br/aoO4x6M" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ width: '100%' }} onClick={() => setMobileMenuOpen(false)}>

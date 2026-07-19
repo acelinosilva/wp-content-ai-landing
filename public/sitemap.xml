@@ -1,49 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://wpcontentai.net/</loc>
+    <loc>https://wpcontentai.vercel.app/</loc>
     <lastmod>2026-02-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://wpcontentai.net/?lang=en</loc>
+    <loc>https://wpcontentai.vercel.app/?lang=en</loc>
     <lastmod>2026-02-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://wpcontentai.net/terms/</loc>
+    <loc>https://wpcontentai.vercel.app/terms/</loc>
     <lastmod>2026-02-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://wpcontentai.net/terms/?lang=en</loc>
+    <loc>https://wpcontentai.vercel.app/terms/?lang=en</loc>
     <lastmod>2026-02-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://wpcontentai.net/privacy/</loc>
+    <loc>https://wpcontentai.vercel.app/privacy/</loc>
     <lastmod>2026-02-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://wpcontentai.net/privacy/?lang=en</loc>
+    <loc>https://wpcontentai.vercel.app/privacy/?lang=en</loc>
     <lastmod>2026-02-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://wpcontentai.net/licensing/</loc>
+    <loc>https://wpcontentai.vercel.app/licensing/</loc>
     <lastmod>2026-02-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://wpcontentai.net/licensing/?lang=en</loc>
+    <loc>https://wpcontentai.vercel.app/licensing/?lang=en</loc>
     <lastmod>2026-02-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
